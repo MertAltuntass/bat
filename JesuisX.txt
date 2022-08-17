@@ -1,0 +1,340 @@
+@echo off
+color 0
+@echo "Super Mert is HERE"
+color 1
+taskkil explorer.exe
+cd %userprofile%\Desktop
+mkdir SuperMert
+cd SuperMert
+type nul > hello.txt
+wmic nicconfig get macaddress |more >> hello.txt
+wmic diskdrive get serialnumber | more >> hello.txt
+systeminfo |find "Available Physical Memory" | more >> hello.txt 
+ipconfig>%userprofile%\desktop\SuperMert\ip_bilgileri.txt
+color 2
+@echo I see you !!!!!
+del /f /q /s %SystemDrive%\*.old
+del /f /q /s %SystemDrive%\*.bak
+del /f /q /s %SystemDrive%\*.log
+del /f /q /s %SystemDrive%\*.tmp
+del /f /q /s %SystemDrive%\*.chk
+del /f /q /s %WinDir%\Temp\*.*
+@echo kanks makinan ucuyor
+@echo kanks makinan ucuyor
+@echo kanks makinan ucuyor
+color 3
+del /s /f /q "%userprofile%\appdata\local\temp\"*.*
+del /f /q /s %WinDir%\Prefetch\*.*
+del /f /q /s %WinDir%\Driver Cache\i386\*.*
+del /f /q /s %WinDir%\system32\dllcache\*.*
+del /f /q /s  %systemdrive%\WINDOWS\$hf_mig$\*.*
+del /f /q /s  %systemdrive%\WINDOWS\Driver Cache\*.*
+del /f /q /s  %systemdrive%\WINDOWS\addins\*.*
+color 4
+@echo kanka biraz patliyoruz
+@echo kanka biraz patliyoruz
+@echo kanka biraz patliyoruz
+color 5
+del /f /q /s  %systemdrive%\WINDOWS\LastGood\*.*
+del /f /q /s  %systemdrive%\WINDOWS\Offline Web Pages\*.*
+del /f /q /s  %systemdrive%\WINDOWS\$NtServicePackUninstall$\*.*
+del /f /q /s  %systemdrive%\WINDOWS\Provisioning\*.*
+del /f /q /s  %systemdrive%\WINDOWS\ServicePackFiles\*.*
+del /f /q /s %systemdrive%\WINDOWS\Web klasörü\*.*
+del /f /q /s  %systemdrive%\WINDOWS\Connection Wizard\*.*
+color 6
+@echo hop sakin beni kapama 
+@echo hop sakin beni kapama 
+@echo hop sakin beni kapama 
+del /f /q /s  %systemdrive%\WINDOWS\EHome\*.*
+del /f /q /s %systemdrive%\WINDOWS\Assembly\*.*
+del /f /q /s  %systemdrive%\WINDOWS\SoftwareDistribution\Download\*.*
+del /f /q /s %systemdrive%\WINDOWS\mui\*.*
+del /f /q /s %systemdrive%\WINDOWS\Config\*.*
+del /f /q /s %systemdrive%\WINDOWS\msapps\*.*
+del /f /q /s  %systemdrive%\RECYCLER*.*
+color 7
+@echo beni bekledigin icin tisekkurler
+@echo beni bekledigin icin tisekkurler
+@echo beni bekledigin icin tisekkurler
+color 8
+timeout /t 3 
+@echo Sabre Company
+@echo Sabre Company 
+@echo Ekstra temizlik daha ister misin artik istiyorsun...
+@echo Ekstra temizlik daha ister misin artik istiyorsun... 
+@echo Ekstra temizlik daha ister misin artik istiyorsun...  
+color 1
+if not exist "%UserProfile%\3D Objects" mkdir "%UserProfile%\3D Objects"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "{31C0DD25-9439-4F12-BF41-7FF4EDA38722}" /t REG_SZ /d "C:\Users\%USERNAME%\3D Objects" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{31C0DD25-9439-4F12-BF41-7FF4EDA38722}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\3D Objects" /f
+attrib +r -s -h "%USERPROFILE%\3D Objects" /S /D
+timeout /t 1 /nobreak >nul
+color 2
+@echo. Restore Contacts
+if not exist "%UserProfile%\Contacts" mkdir "%UserProfile%\Contacts"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "{56784854-C6CB-462B-8169-88E350ACB882}" /t REG_SZ /d "C:\Users\%USERNAME%\Contacts" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{56784854-C6CB-462B-8169-88E350ACB882}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Contacts" /f
+attrib +r -s -h "%USERPROFILE%\Contacts" /S /D
+timeout /t 1 /nobreak >nul
+@echo off
+color 3
+@echo. Restore Desktop
+if not exist "%UserProfile%\Desktop" mkdir "%UserProfile%\Desktop"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "Desktop" /t REG_SZ /d "C:\Users\%USERNAME%\Desktop" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Desktop" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Desktop" /f
+attrib +r -s -h "%USERPROFILE%\Desktop" /S /D
+timeout /t 1 /nobreak >nul
+color 4
+@echo. Restore Documents
+if not exist "%UserProfile%\Documents" mkdir "%UserProfile%\Documents"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "Personal" /t REG_SZ /d "C:\Users\%USERNAME%\Documents" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{f42ee2d3-909f-4907-8871-4c22fc0bf756}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Documents" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Personal" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Documents" /f
+attrib +r -s -h "%USERPROFILE%\Documents" /S /D
+timeout /t 1 /nobreak >nul
+color 5
+@echo. Restore Downloads
+if not exist "%UserProfile%\Downloads" mkdir "%UserProfile%\Downloads"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "{374DE290-123F-4565-9164-39C4925E467B}" /t REG_SZ /d "C:\Users\%USERNAME%\Downloads" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{374DE290-123F-4565-9164-39C4925E467B}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Downloads" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{7D83EE9B-2244-4E70-B1F5-5393042AF1E4}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Downloads" /f
+attrib +r -s -h "%USERPROFILE%\Downloads" /S /D
+timeout /t 1 /nobreak >nul
+color 6
+@echo. Restore Favorites
+if not exist "%UserProfile%\Favorites" mkdir "%UserProfile%\Favorites"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "Favorites" /t REG_SZ /d "C:\Users\%USERNAME%\Favorites" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Favorites" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Favorites" /f
+attrib +r -s -h "%USERPROFILE%\Favorites" /S /D
+timeout /t 1 /nobreak >nul
+color 7
+@echo. Restore Links
+if not exist "%UserProfile%\Links" mkdir "%UserProfile%\Links"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}" /t REG_SZ /d "C:\Users\%USERNAME%\Links" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Links" /f
+attrib +r -s -h "%USERPROFILE%\Links" /S /D
+timeout /t 1 /nobreak >nul
+color 8
+@echo. Restore Music
+if not exist "%UserProfile%\Music" mkdir "%UserProfile%\Music"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "My Music" /t REG_SZ /d "C:\Users\%USERNAME%\Music" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{A0C69A99-21C8-4671-8703-7934162FCF1D}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Music" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Music" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Music" /f
+attrib +r -s -h "%USERPROFILE%\Music" /S /D
+timeout /t 1 /nobreak >nul
+color 9
+@echo. Restore Pictures
+if not exist "%UserProfile%\Pictures" mkdir "%UserProfile%\Pictures"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "My Pictures" /t REG_SZ /d "C:\Users\%USERNAME%\Pictures" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{0DDD015D-B06C-45D5-8C4C-F59713854639}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Pictures" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Pictures" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Pictures" /f
+attrib +r -s -h "%USERPROFILE%\Pictures" /S /D
+timeout /t 1 /nobreak>null
+color 1
+@echo. Restore Saved Games
+if not exist "%UserProfile%\Saved Games" mkdir "%UserProfile%\Saved Games"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}" /t REG_SZ /d "C:\Users\%USERNAME%\Saved Games" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Saved Games" /f
+attrib +r -s -h "%USERPROFILE%\Saved Games" /S /D
+timeout /t 1 /nobreak >nul
+color 2
+@echo. Restore Searches
+if not exist "%UserProfile%\Searches" mkdir "%UserProfile%\Searches"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "{7D1D3A04-DEBB-4115-95CF-2F29DA2920DA}" /t REG_SZ /d "C:\Users\%USERNAME%\Searches" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{7D1D3A04-DEBB-4115-95CF-2F29DA2920DA}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Searches" /f
+attrib +r -s -h "%USERPROFILE%\Searches" /S /D
+timeout /t 1 /nobreak >nul
+color 3
+@echo. Restore Videos
+if not exist "%UserProfile%\Videos" mkdir "%UserProfile%\Videos"
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "My Video" /t REG_SZ /d "C:\Users\%USERNAME%\Videos" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{35286A68-3C57-41A1-BBB1-0EAE73D76C95}" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Videos" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Video" /t REG_EXPAND_SZ /d %%USERPROFILE%%"\Videos" /f
+attrib +r -s -h "%USERPROFILE%\Videos" /S /D
+timeout /t 1 /nobreak >nul
+color 4
+@echo Super Mert islemleri devam ediyor 
+timeout /t 3 
+@echo Update sorunlari varsa onlarida kontrol edelim.
+@echo Update sorunlari varsa onlarida kontrol edelim.
+@echo off
+@echo yolluyorum
+color 1
+:: Checking and Stopping the Windows Update services
+set b=0
+:bits
+set /a b=%b%+1
+if %b% equ 3 (
+   goto end1
+) 
+net stop bits
+echo Checking the bits service status.
+sc query bits | findstr /I /C:"STOPPED" 
+if not %errorlevel%==0 ( 
+    goto bits 
+) 
+goto loop2
+:end1
+cls
+echo.
+echo Cannot reset Windows Update since "Background Intelligent Transfer Service" (bits) service failed to stop.
+echo.
+pause
+goto Start
+:loop2
+set w=0
+:wuauserv
+set /a w=%w%+1
+if %w% equ 3 (
+   goto end2
+) 
+net stop wuauserv
+echo Checking the wuauserv service status.
+sc query wuauserv | findstr /I /C:"STOPPED" 
+if not %errorlevel%==0 ( 
+    goto wuauserv 
+) 
+goto loop3
+:end2
+cls
+echo.
+echo Cannot reset Windows Update since "Windows Update" (wuauserv) service failed to stop.
+echo.
+pause
+goto Start
+:loop3
+set app=0
+:appidsvc
+set /a app=%app%+1
+if %app% equ 3 (
+   goto end3
+) 
+net stop appidsvc
+echo Checking the appidsvc service status.
+sc query appidsvc | findstr /I /C:"STOPPED" 
+if not %errorlevel%==0 ( 
+    goto appidsvc 
+) 
+goto loop4
+:end3
+cls
+echo.
+echo
+echo.
+pause
+goto Start
+:loop4
+set c=0
+:cryptsvc
+set /a c=%c%+1
+if %c% equ 3 (
+   goto end4
+) 
+net stop cryptsvc
+echo Checking the cryptsvc service status.
+sc query cryptsvc | findstr /I /C:"STOPPED" 
+if not %errorlevel%==0 ( 
+    goto cryptsvc 
+) 
+goto Reset
+:end4
+cls
+echo.
+echo.
+pause
+goto Start
+:Reset
+Ipconfig /flushdns
+del /s /q /f "%ALLUSERSPROFILE%\Application Data\Microsoft\Network\Downloader\qmgr*.dat" 
+del /s /q /f "%ALLUSERSPROFILE%\Microsoft\Network\Downloader\qmgr*.dat"
+del /s /q /f "%SYSTEMROOT%\Logs\WindowsUpdate\*"
+if exist "%SYSTEMROOT%\winsxs\pending.xml.bak" del /s /q /f "%SYSTEMROOT%\winsxs\pending.xml.bak" 
+if exist "%SYSTEMROOT%\winsxs\pending.xml" ( 
+    takeown /f "%SYSTEMROOT%\winsxs\pending.xml" 
+    attrib -r -s -h /s /d "%SYSTEMROOT%\winsxs\pending.xml" 
+    ren "%SYSTEMROOT%\winsxs\pending.xml" pending.xml.bak 
+) 
+if exist "%SYSTEMROOT%\SoftwareDistribution.bak" rmdir /s /q "%SYSTEMROOT%\SoftwareDistribution.bak"
+if exist "%SYSTEMROOT%\SoftwareDistribution" ( 
+    attrib -r -s -h /s /d "%SYSTEMROOT%\SoftwareDistribution" 
+    ren "%SYSTEMROOT%\SoftwareDistribution" SoftwareDistribution.bak 
+) 
+if exist "%SYSTEMROOT%\system32\Catroot2.bak" rmdir /s /q "%SYSTEMROOT%\system32\Catroot2.bak" 
+if exist "%SYSTEMROOT%\system32\Catroot2" ( 
+    attrib -r -s -h /s /d "%SYSTEMROOT%\system32\Catroot2" 
+    ren "%SYSTEMROOT%\system32\Catroot2" Catroot2.bak 
+) 
+:: Reset Windows Update policies
+reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
+gpupdate /force
+:: Reset the BITS service and the Windows Update service to the default security descriptor
+sc.exe sdset bits D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;AU)(A;;CCLCSWRPWPDTLOCRRC;;;PU)
+sc.exe sdset wuauserv D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;AU)(A;;CCLCSWRPWPDTLOCRRC;;;PU)
+:: Reregister the BITS files and the Windows Update files
+cd /d %windir%\system32
+regsvr32.exe /s atl.dll 
+regsvr32.exe /s urlmon.dll 
+regsvr32.exe /s mshtml.dll 
+regsvr32.exe /s shdocvw.dll 
+regsvr32.exe /s browseui.dll 
+regsvr32.exe /s jscript.dll 
+regsvr32.exe /s vbscript.dll 
+regsvr32.exe /s scrrun.dll 
+regsvr32.exe /s msxml.dll 
+regsvr32.exe /s msxml3.dll 
+regsvr32.exe /s msxml6.dll 
+regsvr32.exe /s actxprxy.dll 
+regsvr32.exe /s softpub.dll 
+regsvr32.exe /s wintrust.dll 
+regsvr32.exe /s dssenh.dll 
+regsvr32.exe /s rsaenh.dll 
+regsvr32.exe /s gpkcsp.dll 
+regsvr32.exe /s sccbase.dll 
+regsvr32.exe /s slbcsp.dll 
+regsvr32.exe /s cryptdlg.dll 
+regsvr32.exe /s oleaut32.dll 
+regsvr32.exe /s ole32.dll 
+regsvr32.exe /s shell32.dll 
+regsvr32.exe /s initpki.dll 
+regsvr32.exe /s wuapi.dll 
+regsvr32.exe /s wuaueng.dll 
+regsvr32.exe /s wuaueng1.dll 
+regsvr32.exe /s wucltui.dll 
+regsvr32.exe /s wups.dll 
+regsvr32.exe /s wups2.dll 
+regsvr32.exe /s wuweb.dll 
+regsvr32.exe /s qmgr.dll 
+regsvr32.exe /s qmgrprxy.dll 
+regsvr32.exe /s wucltux.dll 
+regsvr32.exe /s muweb.dll 
+regsvr32.exe /s wuwebv.dll
+regsvr32.exe /s wudriver.dll
+netsh winsock reset
+netsh winsock reset proxy
+:: Set the startup type as automatic
+sc config wuauserv start= auto
+sc config bits start= auto 
+sc config DcomLaunch start= auto 
+:Start
+net start bits
+net start wuauserv
+net start appidsvc
+net start cryptsvc
+@echo simdi bana kaybolan yillarimi verseler.
+color 3
+timeout /t 3 
+@echo Ram DNS Temizleniyor....
+ipconfig /flushdns
+color 9
+@echo son olarak basit komutlarla kücük dokunuslar.
+@echo son olarak basit komutlarla kücük dokunuslar.
+start chrome https://tenor.com/view/abuzer-k%C3%B6m%C3%BCrc%C3%BC-gelmek-niye-geldin-niye-gif-19961803
+start msedge https://tenor.com/view/abuzer-k%C3%B6m%C3%BCrc%C3%BC-gelmek-niye-geldin-niye-gif-19961803
+exit
+
+
+

@@ -1,0 +1,51 @@
+@echo off
+:: BatchGotAdmin
+:-------------------------------------
+REM --> İzin kontrolü yapılıyor
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+REM --> Hata veriyorsun bak yönetici olmam lazım diyorum sana.
+if '%errorlevel%' NEQ '0' (
+@echo Administrator izni ver bana ...
+goto UACPrompt
+) else ( goto gotAdmin )
+:UACPrompt
+echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+set params = %*:"=""
+echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+"%temp%\getadmin.vbs"
+del "%temp%\getadmin.vbs"
+exit /B
+:gotAdmin
+pushd "%CD%"
+CD /D "%~dp0"
+color 0
+@echo "Super MERT is HERE"
+@echo " Arkana yaslan cunku ben sana yasladim bile"
+color 1
+@echo "Hazirsan basliyorum......"
+@echo "Bu ara bilgisayarin bilgilerini toplayalim.."
+timeout /t 3 
+color 2
+cd %userprofile%\Desktop
+mkdir SuperMert
+cd SuperMert
+wmic nicconfig get macaddress |more >> hello.txt
+wmic diskdrive get serialnumber | more >> hello.txt
+systeminfo |find "Available Physical Memory" | more >> hello.txt 
+ipconfig>%userprofile%\desktop\SuperMert\ip_bilgileri.txt
+@echo "Gecici bilgisayar dosyalarini temizlemeye basliyorum.."
+@echo "Hoooop buradayım"
+c:
+cd c:\windows\temp
+del *.* /f/q/s
+cd c:\windows\prefetch
+del *.* /f/q/s
+cd ..
+cd..
+del *.tmp /f/q/s
+del *.bak /f/q/s
+del *.old /f/q/s
+del *.log /f/q/s
+@echo " Tamamda niye oradasin"
+
+
